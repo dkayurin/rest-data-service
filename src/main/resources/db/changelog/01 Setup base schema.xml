@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+
+
+    <changeSet author="dkayurin" id="schema">
+        <comment>Setup base schema</comment>
+
+        <createTable tableName="client">
+            <column name="ID" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="FIRST_NAME" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LAST_NAME" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="account">
+            <column name="CLIENT_ID" type="UUID">
+                <constraints nullable="false" foreignKeyName="CLIENT_ID_FK" references="client(ID)"/>
+            </column>
+
+            <column name="ID" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="BALANCE" type="CURRENCY">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createIndex tableName="account" indexName="CLIENT_ID_IDX">
+            <column name="CLIENT_ID"/>
+        </createIndex>
+
+        <createTable tableName="transaction">
+            <column name="ACCOUNT_ID" type="UUID">
+                <constraints nullable="false" foreignKeyName="TRANSACTION_ID_FK" references="account(ID)"/>
+            </column>
+
+            <column name="ID" type="UUID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="TARGET_ACCOUNT_ID" type="varchar(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AMOUNT" type="CURRENCY">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TRANSACTION_DATE" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createIndex tableName="transaction" indexName="ACCOUNT_ID_IDX">
+            <column name="ACCOUNT_ID"/>
+        </createIndex>
+
+        <sqlFile path="db/data.sql"/>
+
+    </changeSet>
+</databaseChangeLog>

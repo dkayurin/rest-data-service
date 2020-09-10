@@ -1,0 +1,185 @@
+2020-09-10 08:32:11 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOGLOCK [42102-200]
+2020-09-10 08:37:04 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "CREATED" not found; SQL statement:
+insert into account (ID, CLIENT_ID, BALANCE, CREATED)
+values ('00000000-0000-0000-0004-000000000001', '00000000-0000-0000-0003-000000000001', '1000', '2019-09-18 11:30:55') [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.table.Table.getColumn(Table.java:703)
+	at org.h2.command.Parser.parseColumn(Parser.java:1450)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1435)
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1804)
+	at org.h2.command.Parser.parseInsert(Parser.java:1749)
+	at org.h2.command.Parser.parsePrepared(Parser.java:954)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:398)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:59)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:131)
+	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1276)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1258)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:609)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:53)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:83)
+	at liquibase.Liquibase.update(Liquibase.java:202)
+	at liquibase.Liquibase.update(Liquibase.java:179)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:366)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:314)
+	at org.springframework.boot.autoconfigure.liquibase.DataSourceClosingSpringLiquibase.afterPropertiesSet(DataSourceClosingSpringLiquibase.java:46)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:311)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1109)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.rest.data.demoservice.TaskApplication.main(TaskApplication.java:10)
+2020-09-10 08:40:13 jdbc[9]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT" already exists; SQL statement:
+CREATE TABLE PUBLIC.client (ID UUID NOT NULL, FIRST_NAME VARCHAR(64) NOT NULL, LAST_NAME VARCHAR(64) NOT NULL, CONSTRAINT PK_CLIENT PRIMARY KEY (ID)) [42101-200]
+2020-09-10 08:47:38 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT" already exists; SQL statement:
+CREATE TABLE PUBLIC.client (ID UUID NOT NULL, FIRST_NAME VARCHAR(64) NOT NULL, LAST_NAME VARCHAR(64) NOT NULL, CONSTRAINT PK_CLIENT PRIMARY KEY (ID)) [42101-200]
+2020-09-10 08:49:44 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOGLOCK [42102-200]
+2020-09-10 08:49:45 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "MODIFIED" not found; SQL statement:
+insert into account (ID, CLIENT_ID, BALANCE, CREATED, MODIFIED)
+values ('00000000-0000-0000-0004-000000000002', '00000000-0000-0000-0003-000000000001', '2000', '2019-08-18 13:30:55') [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.table.Table.getColumn(Table.java:703)
+	at org.h2.command.Parser.parseColumn(Parser.java:1450)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1435)
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1804)
+	at org.h2.command.Parser.parseInsert(Parser.java:1749)
+	at org.h2.command.Parser.parsePrepared(Parser.java:954)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:398)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:59)
+	at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:131)
+	at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1276)
+	at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1258)
+	at liquibase.changelog.ChangeSet.execute(ChangeSet.java:609)
+	at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:53)
+	at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:83)
+	at liquibase.Liquibase.update(Liquibase.java:202)
+	at liquibase.Liquibase.update(Liquibase.java:179)
+	at liquibase.integration.spring.SpringLiquibase.performUpdate(SpringLiquibase.java:366)
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:314)
+	at org.springframework.boot.autoconfigure.liquibase.DataSourceClosingSpringLiquibase.afterPropertiesSet(DataSourceClosingSpringLiquibase.java:46)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:311)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1109)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.rest.data.demoservice.TaskApplication.main(TaskApplication.java:10)
+2020-09-10 08:50:32 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT" already exists; SQL statement:
+CREATE TABLE PUBLIC.client (ID UUID NOT NULL, FIRST_NAME VARCHAR(64) NOT NULL, LAST_NAME VARCHAR(64) NOT NULL, CONSTRAINT PK_CLIENT PRIMARY KEY (ID)) [42101-200]
+2020-09-10 08:50:49 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOGLOCK [42102-200]
+2020-09-10 08:51:43 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOGLOCK [42102-200]
+2020-09-10 08:53:50 jdbc[10]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOGLOCK [42102-200]
+2020-09-10 08:55:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 08:58:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 09:09:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 09:09:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 09:11:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 09:11:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 09:12:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 09:15:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 09:15:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 09:19:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 09:19:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 09:23:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 09:24:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 09:24:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENT_ACCOUNTS" not found; SQL statement:
+select accounts0_.client_id as client_i1_3_0_, accounts0_.accounts_id as accounts2_3_0_, account1_.id as id1_0_1_, account1_.balance as balance2_0_1_, account1_.client_id as client_i4_0_1_, account1_.created as created3_0_1_, client2_.id as id1_2_2_, client2_.first_name as first_na2_2_2_, client2_.last_name as last_nam3_2_2_ from client_accounts accounts0_ inner join account account1_ on accounts0_.accounts_id=account1_.id left outer join client client2_ on account1_.client_id=client2_.id where accounts0_.client_id=? [42102-200]
+2020-09-10 12:07:17 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
+SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOGLOCK [42102-200]
